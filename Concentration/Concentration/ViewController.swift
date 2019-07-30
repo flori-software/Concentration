@@ -56,6 +56,8 @@ class ViewController: UIViewController {
     //private var emojiChoices = ["😻", "😎", "😇", "😝", "🤪", "🕵🏽‍♀️", "👨🏼‍🌾", "👻", "👅", "👀"]
     private var emojiChoices = "😻😎😇😝🤪🕵🏽‍♀️👨🏼‍🌾👻👅👀"
     
+    // Test der Verbindung zu GitHub nach OS-Update
+    
     // Die Emojis werden in ein Dictionary gepackt
     private var emoji = [Card:String]()
     
