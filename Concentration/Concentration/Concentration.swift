@@ -13,17 +13,19 @@ struct Concentration {
     
     private var indexOfOneAndOnlyFaceUpCard: Int? {
         get {
-            var foundIndex: Int?
-            for index in cards.indices {
-                if cards[index].isFaceUp {
-                    if foundIndex == nil {
-                        foundIndex = index
-                    } else {
-                        return nil
-                    }
-                }
-            }
-            return foundIndex
+            return cards.indices.filter{cards[$0].isFaceUp}.oneAndOnly // Falls eine Kollektion nur einen Wert beinhaltet, wird dieser zurückgegeben, sonst wird nil zurückgegeben (s. extension weiter unten)
+
+ //           var foundIndex: Int?
+ //           for index in cards.indices {
+ //               if cards[index].isFaceUp {
+ //                   if foundIndex == nil {
+ //                       foundIndex = index
+ //                   } else {
+ //                       return nil
+ //                   }
+ //               }
+ //           }
+ //           return foundIndex
         }
         set {
             for index in cards.indices {
@@ -71,5 +73,11 @@ struct Concentration {
             aktuelle_position += 1
         }
         cards = emojis
+    }
+}
+
+extension Collection {
+    var oneAndOnly: Element? {
+        return count == 1 ? first : nil
     }
 }
